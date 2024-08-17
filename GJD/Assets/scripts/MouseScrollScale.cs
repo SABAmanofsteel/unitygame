@@ -31,13 +31,12 @@ public class MouseScrollScale : MonoBehaviour
 
     void Update()
     {
-        if (canResize)
-        {
+        
             scale = transform.localScale.x;
             // Get the scroll value from the mouse
             float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-            if (scroll > 0f) // Scrolling forward
+            if (scroll > 0f&& canResize) // Scrolling forward
             {
                 // Increase the scale but clamp it to the maxScale
                 targetScale += Vector2.one * scaleSpeed;
@@ -52,7 +51,6 @@ public class MouseScrollScale : MonoBehaviour
 
             // Smoothly update the object's scale
             transform.localScale = Vector2.Lerp(transform.localScale, targetScale, Time.deltaTime * 10f);
-        }
         
     }
 }
