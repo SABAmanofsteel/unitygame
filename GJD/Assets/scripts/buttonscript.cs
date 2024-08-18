@@ -8,6 +8,8 @@ public class buttonscript : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool pressed=false;
     public bool stayPressed=false;
+    public Color redcolor;
+    public Color greencolor;
     void Start()
     {
         // Get the SpriteRenderer component
@@ -19,7 +21,7 @@ public class buttonscript : MonoBehaviour
         {
             pressed = true;
             door.buttonspressed++;
-            spriteRenderer.color = Color.green;
+            spriteRenderer.color = greencolor;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -28,7 +30,7 @@ public class buttonscript : MonoBehaviour
         {
             pressed = false;
             door.buttonspressed--;
-            spriteRenderer.color = Color.red;
+            spriteRenderer.color = redcolor;
         }
     }
 }
